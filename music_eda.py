@@ -43,9 +43,16 @@ chroma = librosa.feature.chroma_stft(S=S, sr=sr)
 # [ 0.793,  0.663, ...,  0.964,  0.972]])
 
 import matplotlib.pyplot as plt
+
+plt.figure()
+librosa.display.waveplot(y, sr)
+plt.title('Audio Waveform')
+plt.savefig('Waveform')
+
+plt.clf()
 plt.figure(figsize=(10, 4))
 librosa.display.specshow(chroma, y_axis='chroma', x_axis='time')
 plt.colorbar()
 plt.title('Chromagram')
 plt.tight_layout()
-plt.show()
+plt.savefig('Chromagram')
